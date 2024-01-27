@@ -65,15 +65,14 @@ When working with an existing managed identity that has the correct RBAC, you ca
 
 ```bicep
 module InstallInternalNginxIngress '../modules/Custom/deployment-scripts/aks-helm-install/main.bicep' = {
-  scope: resourceGroup(resourceGroupArray[0].name)
   name: 'Install-Internal-Ingress'
   params: {
     aksName: aksClusterName
     location: location
     newOrExistingManagedIdentity: 'existing'
-    managedIdentityName: enabledInternalIngress ? aksRunMID.name : ''
+    managedIdentityName: 'aks-run-command-id'
     existingManagedIdentitySubId: subscription().subscriptionId
-    existingManagedIdentityResourceGroupName: resourceGroupArray[0].name
+    existingManagedIdentityResourceGroupName: 'resourceGroupName'
     helmRepo: 'ingress-nginx'
     helmRepoURL: 'https://kubernetes.github.io/ingress-nginx'
     helmApp: 'ingress-nginx/ingress-nginx'
