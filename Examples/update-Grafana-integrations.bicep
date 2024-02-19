@@ -27,7 +27,6 @@ resource existingAzureMonitorWorkSpace 'Microsoft.Monitor/accounts@2023-04-03' e
   name: azureMonitorWorkspaceName
 }
 
-// Variables with descriptions
 // Fetches the current Azure Monitor Workspace integrations from the existing Grafana Workspace
 var azureMonitorWorkspaceIntegrations = existingGrafana.properties.grafanaIntegrations.azureMonitorWorkspaceIntegrations
 
