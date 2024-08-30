@@ -6,7 +6,7 @@ parameters:
     type: string
     displayName: 'Choose a value for the variable'
     values:
-      - $null
+      - 
       - test1
       - test2
       - test3
