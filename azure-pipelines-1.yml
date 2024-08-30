@@ -6,9 +6,6 @@ resources:
     - pipeline: pipeline1
       source: 'pipeline1'  # Reference to the Producer Pipeline
       trigger: true        # Automatically trigger this pipeline when the first one completes
-      project: 'YourProjectName'
-      branch: 'refs/heads/main'
-      version: 'latest'
 
 parameters:
   - name: dynamicVarFromPipeline1
