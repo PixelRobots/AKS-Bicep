@@ -1,6 +1,17 @@
 trigger: none
 pr: none
 
+parameters:
+  - name: dynamicVarFromArtifact
+    type: string
+    displayName: 'Choose a value for the variable'
+    values:
+      - ''
+      - test1
+      - test2
+      - test3
+    default: ''  # Default is empty
+
 jobs:
 - job: SetVariables
   pool:
