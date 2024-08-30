@@ -3,7 +3,7 @@ pr: none
 
 resources:
   pipelines:
-    - pipeline: pipeline1
+    - pipeline: pipeline
       source: 'pipeline1'  # Reference to the Producer Pipeline
       trigger: true        # Automatically trigger this pipeline when the first one completes
 
