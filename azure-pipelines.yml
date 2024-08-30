@@ -1,0 +1,16 @@
+trigger: none
+pr: none
+
+jobs:
+- job: SetVariables
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - script: |
+      echo "##vso[task.setvariable variable=dynamicVar;isOutput=true]HelloWorld"
+    name: setDynamicVar
+
+  - script: |
+      echo "The variable is: $(setDynamicVar.dynamicVar)"
+      echo "##vso[build.updatebuildnumber]$(Build.BuildId)-$(setDynamicVar.dynamicVar)"
+    displayName: 'Display the dynamic variable'
