@@ -3,10 +3,13 @@ pr: none
 
 resources:
   pipelines:
-    - pipeline: pipeline
+    - pipeline: build_pipeline
       source: 'pipeline1'  # Reference to the Producer Pipeline
       trigger: true        # Automatically trigger this pipeline when the first one completes
-
+      project: 'Cloud Adventures'
+      branch: 'refs/heads/main'
+      version: 'latest'
+      
 parameters:
   - name: dynamicVarFromPipeline1
     type: string
