@@ -9,7 +9,6 @@ parameters:
       - test1
       - test2
       - test3
-    default: ''  # Default is empty
 
 jobs:
 - job: SetVariables
