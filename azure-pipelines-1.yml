@@ -1,0 +1,25 @@
+trigger: none
+pr: none
+
+resources:
+  pipelines:
+    - pipeline: pipeline1
+      source: 'pipeline1'  # Reference to the Producer Pipeline
+      trigger: true        # Automatically trigger this pipeline when the first one completes
+      project: 'YourProjectName'
+      branch: 'refs/heads/main'
+      version: 'latest'
+
+parameters:
+  - name: dynamicVarFromPipeline1
+    type: string
+    default: ''
+
+jobs:
+- job: UseVariables
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - script: |
+      echo "Received variable: ${{ parameters.dynamicVarFromPipeline1 }}"
+    displayName: 'Display the variable from the first pipeline'
